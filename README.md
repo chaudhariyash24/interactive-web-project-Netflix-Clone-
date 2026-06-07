@@ -1,43 +1,39 @@
-# Netflix Inspired Streaming Website
+# Netflix Clone
 
-A premium Netflix-inspired streaming website built using HTML, CSS and JavaScript.
+A responsive Netflix Clone web application built using HTML, CSS, and JavaScript. This project recreates the Netflix user interface with a modern layout, interactive features, and responsive design for learning and frontend development practice.
 
 ## Features
-- Responsive UI
-- Movie cards and sections
-- Hero banner
-- Search functionality
-- Smooth animations
-- Mobile-friendly design
+- Responsive Netflix-inspired user interface
+- Movie and series cards
+- Navigation bar with modern design
+- Hover effects and smooth transitions
+- Interactive sections using JavaScript
+- Responsive layout for desktop and mobile devices
+- Clean and user-friendly design
 
-## Tech Stack
+## Technologies Used
 - HTML5
 - CSS3
 - JavaScript
 
+## Assets Used
+- Images and posters collected from online resources
+- Icons and media assets used for educational purposes
+- Netflix-inspired UI design elements
+
 ## Project Structure
 
-```bash
-project/
+Netflix-Clone/
 ├── index.html
 ├── style.css
 ├── script.js
-├── README.md
-├── LICENSE
-├── .gitignore
-└── CONTRIBUTING.md
-```
+├── assets/
+│ ├── images
+│ └── icons
+└── README.md
 
-## Installation
+## Project Purpose
+This project was created to improve frontend development skills and understand responsive web design concepts.
 
-1. Clone repository
-```bash
-git clone https://github.com/chaudhariyash24/interactive-web-project-Netflix-Clone-
-```
-
-2. Open project folder
-
-3. Run index.html in browser
-
-## Author
-Yash Chaudhari
+## Disclaimer
+This project is developed for educational purposes only. Netflix logos, images, and design inspiration belong to their respective owners.
