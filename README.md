@@ -32,7 +32,7 @@ project/
 
 1. Clone repository
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/chaudhariyash24/interactive-web-project-Netflix-Clone-
 ```
 
 2. Open project folder
@@ -40,4 +40,4 @@ git clone <your-repository-url>
 3. Run index.html in browser
 
 ## Author
-Yash
+Yash Chaudhari
