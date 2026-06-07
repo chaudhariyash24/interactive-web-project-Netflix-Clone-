@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Netflux — Watch Anywhere</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════
+       LOADING SCREEN
+  ═══════════════════════════════════════════════════ -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loader-logo">NETFLUX</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-left">
+      <a href="#" class="nav-logo">NETFLUX</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#" class="nav-link active">Home</a></li>
+        <li><a href="#" class="nav-link">TV Shows</a></li>
+        <li><a href="#" class="nav-link">Movies</a></li>
+        <li><a href="#" class="nav-link">New &amp; Popular</a></li>
+        <li><a href="#" class="nav-link">My List</a></li>
+        <li><a href="#" class="nav-link">Browse Languages</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <div class="search-container" id="search-container">
+        <button class="icon-btn search-toggle" id="search-toggle" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <input type="text" class="search-input" id="search-input" placeholder="Titles, people, genres" />
+      </div>
+      <button class="icon-btn" aria-label="Notifications">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="notif-badge">3</span>
+      </button>
+      <div class="profile-avatar" id="profile-btn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="Profile" />
+        <svg class="caret" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+        <div class="profile-dropdown">
+          <a href="#">Manage Profiles</a>
+          <a href="#">Account</a>
+          <a href="#">Help Center</a>
+          <hr />
+          <a href="#">Sign out of Netflux</a>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════
+       SEARCH RESULTS OVERLAY
+  ═══════════════════════════════════════════════════ -->
+  <div class="search-overlay" id="search-overlay">
+    <div class="search-results-header">
+      <span id="search-results-count"></span>
+    </div>
+    <div class="search-results-grid" id="search-results-grid"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" id="hero-bg">
+      <img src="https://image.tmdb.org/t/p/original/tmU7GeKVjjZTdD1thRFaZCKMDMW.jpg" alt="Hero" class="hero-img" id="hero-img" />
+      <div class="hero-gradient"></div>
+    </div>
+    <div class="hero-content" id="hero-content">
+      <div class="hero-badge">🎬 #1 in Movies Today</div>
+      <h1 class="hero-title" id="hero-title">Interstellar</h1>
+      <div class="hero-meta">
+        <span class="hero-match">98% Match</span>
+        <span class="hero-year">2014</span>
+        <span class="hero-rating">PG-13</span>
+        <span class="hero-duration">2h 49m</span>
+      </div>
+      <p class="hero-desc" id="hero-desc">A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival as Earth's future grows increasingly uncertain. A visually stunning epic.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="openModal('tt0816692')">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Play
+        </button>
+        <button class="btn btn-secondary" onclick="openModal('tt0816692')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          More Info
+        </button>
+      </div>
+    </div>
+    <div class="hero-controls">
+      <div class="maturity-badge">13+</div>
+    </div>
+    <div class="hero-dots" id="hero-dots"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       MAIN CONTENT — ALL ROWS
+  ═══════════════════════════════════════════════════ -->
+  <main class="main-content" id="main-content">
+
+    <!-- Continue Watching -->
+    <section class="row-section" id="section-continue">
+      <h2 class="row-title">Continue Watching</h2>
+      <div class="row-wrapper">
+        <button class="row-arrow left" aria-label="Scroll left">&#8249;</button>
+        <div class="movie-row" id="row-continue"></div>
+        <button class="row-arrow right" aria-label="Scroll right">&#8250;</button>
+      </div>
+    </section>
+
+    <!-- Trending Now -->
+    <section class="row-section" id="section-trending">
+      <h2 class="row-title">Trending Now</h2>
+      <div class="row-wrapper">
+        <button class="row-arrow left" aria-label="Scroll left">&#8249;</button>
+        <div class="movie-row" id="row-trending"></div>
+        <button class="row-arrow right" aria-label="Scroll right">&#8250;</button>
+      </div>
+    </section>
+
+    <!-- Popular on Netflux -->
+    <section class="row-section" id="section-popular">
+      <h2 class="row-title">Popular on Netflux</h2>
+      <div class="row-wrapper">
+        <button class="row-arrow left" aria-label="Scroll left">&#8249;</button>
+        <div class="movie-row" id="row-popular"></div>
+        <button class="row-arrow right" aria-label="Scroll right">&#8250;</button>
+      </div>
+    </section>
+
+    <!-- Top Rated -->
+    <section class="row-section" id="section-toprated">
+      <h2 class="row-title">Top Rated</h2>
+      <div class="row-wrapper">
+        <button class="row-arrow left" aria-label="Scroll left">&#8249;</button>
+        <div class="movie-row" id="row-toprated"></div>
+        <button class="row-arrow right" aria-label="Scroll right">&#8250;</button>
+      </div>
+    </section>
+
+    <!-- Action Movies -->
+    <section class="row-section" id="section-action">
+      <h2 class="row-title">Action &amp; Adventure</h2>
+      <div class="row-wrapper">
+        <button class="row-arrow left" aria-label="Scroll left">&#8249;</button>
+        <div class="movie-row" id="row-action"></div>
+        <button class="row-arrow right" aria-label="Scroll right">&#8250;</button>
+      </div>
+    </section>
+
+    <!-- Comedy Movies -->
+    <section class="row-section" id="section-comedy">
+      <h2 class="row-title">Comedy Movies</h2>
+      <div class="row-wrapper">
+        <button class="row-arrow left" aria-label="Scroll left">&#8249;</button>
+        <div class="movie-row" id="row-comedy"></div>
+        <button class="row-arrow right" aria-label="Scroll right">&#8250;</button>
+      </div>
+    </section>
+
+    <!-- Horror Movies -->
+    <section class="row-section" id="section-horror">
+      <h2 class="row-title">Horror Movies</h2>
+      <div class="row-wrapper">
+        <button class="row-arrow left" aria-label="Scroll left">&#8249;</button>
+        <div class="movie-row" id="row-horror"></div>
+        <button class="row-arrow right" aria-label="Scroll right">&#8250;</button>
+      </div>
+    </section>
+
+    <!-- Sci-Fi Movies -->
+    <section class="row-section" id="section-scifi">
+      <h2 class="row-title">Sci-Fi &amp; Fantasy</h2>
+      <div class="row-wrapper">
+        <button class="row-arrow left" aria-label="Scroll left">&#8249;</button>
+        <div class="movie-row" id="row-scifi"></div>
+        <button class="row-arrow right" aria-label="Scroll right">&#8250;</button>
+      </div>
+    </section>
+
+    <!-- New Releases -->
+    <section class="row-section" id="section-new">
+      <h2 class="row-title">New Releases</h2>
+      <div class="row-wrapper">
+        <button class="row-arrow left" aria-label="Scroll left">&#8249;</button>
+        <div class="movie-row" id="row-new"></div>
+        <button class="row-arrow right" aria-label="Scroll right">&#8250;</button>
+      </div>
+    </section>
+
+    <!-- My List -->
+    <section class="row-section" id="section-mylist" style="display:none;">
+      <h2 class="row-title">My List</h2>
+      <div class="row-wrapper">
+        <button class="row-arrow left" aria-label="Scroll left">&#8249;</button>
+        <div class="movie-row" id="row-mylist"></div>
+        <button class="row-arrow right" aria-label="Scroll right">&#8250;</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-logo">NETFLUX</p>
+      <div class="footer-links">
+        <a href="#">FAQ</a>
+        <a href="#">Help Center</a>
+        <a href="#">Account</a>
+        <a href="#">Media Center</a>
+        <a href="#">Investor Relations</a>
+        <a href="#">Jobs</a>
+        <a href="#">Privacy</a>
+        <a href="#">Legal Notices</a>
+        <a href="#">Cookie Preferences</a>
+        <a href="#">Corporate Information</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <p class="footer-copy">&copy; 2025 Netflux. For demonstration purposes only.</p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════
+       MOVIE MODAL
+  ═══════════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modal-close" aria-label="Close">&#10005;</button>
+      <div class="modal-hero">
+        <img class="modal-hero-img" id="modal-hero-img" src="" alt="" />
+        <div class="modal-hero-gradient"></div>
+        <div class="modal-hero-content">
+          <h2 class="modal-title" id="modal-title"></h2>
+          <div class="modal-actions">
+            <button class="btn btn-primary btn-sm" id="modal-play">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              Play
+            </button>
+            <button class="btn-circle" id="modal-add-list" title="Add to My List">
+              <svg id="modal-list-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <button class="btn-circle" title="Like">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-left">
+          <div class="modal-meta">
+            <span class="modal-match" id="modal-match"></span>
+            <span class="modal-year" id="modal-year"></span>
+            <span class="modal-dur" id="modal-dur"></span>
+            <span class="modal-rating-badge" id="modal-rating-badge"></span>
+          </div>
+          <p class="modal-desc" id="modal-desc"></p>
+        </div>
+        <div class="modal-right">
+          <p><span class="meta-label">Genre:</span> <span id="modal-genre"></span></p>
+          <p><span class="meta-label">Starring:</span> <span id="modal-cast"></span></p>
+          <p><span class="meta-label">Director:</span> <span id="modal-director"></span></p>
+        </div>
+      </div>
+      <!-- More like this -->
+      <div class="modal-more">
+        <h3>More Like This</h3>
+        <div class="modal-more-grid" id="modal-more-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       BACK TO TOP
+  ═══════════════════════════════════════════════════ -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
